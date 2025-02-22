@@ -62,26 +62,11 @@ function playGame (){
     let computerScore = 0;
     let roundResult;
     
-    roundResult = playRound(getHumanChoice(), getComputerChoice());
-    if (roundResult === 2) {humanScore++}
-    else if (roundResult === 3) {computerScore++}
-
-    roundResult = playRound(getHumanChoice(), getComputerChoice());
-    if (roundResult === 2) {humanScore++}
-    else if (roundResult === 3) {computerScore++}
-
-    roundResult = playRound(getHumanChoice(), getComputerChoice());
-    if (roundResult === 2) {humanScore++}
-    else if (roundResult === 3) {computerScore++}
-
-    roundResult = playRound(getHumanChoice(), getComputerChoice());
-    if (roundResult === 2) {humanScore++}
-    else if (roundResult === 3) {computerScore++}
-
-    roundResult = playRound(getHumanChoice(), getComputerChoice());
-    if (roundResult === 2) {humanScore++}
-    else if (roundResult === 3) {computerScore++}
-
+    for (let i = 0; i < 5; i++){
+        roundResult = playRound(getHumanChoice(), getComputerChoice());
+        if (roundResult === 2) {humanScore++}
+        else if (roundResult === 3) {computerScore++}
+    }
     if (humanScore === computerScore){
         console.log("This game ends in a tie!")
     } else if (humanScore > computerScore){
