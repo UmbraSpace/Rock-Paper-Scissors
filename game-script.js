@@ -29,7 +29,6 @@ function getHumanChoice(){
 
 function playRound(humanChoice, computerChoice){
     let outcome;
-    let message;
     
     if (humanChoice === computerChoice) {
         outcome = 1;
@@ -48,17 +47,48 @@ function playRound(humanChoice, computerChoice){
             console.log ("It was a tie!");
             break;
         case 2:
-            humanScore++;
             console.log (`You win! ${humanChoice} beats ${computerChoice}!`);
             break;
         case 3:
-            computerScore++;
             console.log (`You lose! ${computerChoice} beats ${humanChoice}!`);
     }
 
+    return outcome;
+
 }
 
-let humanScore = 0;
-let computerScore = 0;
+function playGame (){
+    let humanScore = 0;
+    let computerScore = 0;
+    let roundResult;
+    
+    roundResult = playRound(getHumanChoice(), getComputerChoice());
+    if (roundResult === 2) {humanScore++}
+    else if (roundResult === 3) {computerScore++}
 
-playRound(getHumanChoice(), getComputerChoice());
+    roundResult = playRound(getHumanChoice(), getComputerChoice());
+    if (roundResult === 2) {humanScore++}
+    else if (roundResult === 3) {computerScore++}
+
+    roundResult = playRound(getHumanChoice(), getComputerChoice());
+    if (roundResult === 2) {humanScore++}
+    else if (roundResult === 3) {computerScore++}
+
+    roundResult = playRound(getHumanChoice(), getComputerChoice());
+    if (roundResult === 2) {humanScore++}
+    else if (roundResult === 3) {computerScore++}
+
+    roundResult = playRound(getHumanChoice(), getComputerChoice());
+    if (roundResult === 2) {humanScore++}
+    else if (roundResult === 3) {computerScore++}
+
+    if (humanScore === computerScore){
+        console.log("This game ends in a tie!")
+    } else if (humanScore > computerScore){
+        console.log("Nice job, you won the game!")
+    } else {
+        console.log("You lost that game! Too bad!")
+    }
+}
+
+playGame();
