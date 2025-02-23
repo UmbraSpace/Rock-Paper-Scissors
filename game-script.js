@@ -18,8 +18,16 @@ function getHumanChoice(){
     let verified;
     while (true) {
         humanChoice = prompt("Rock, Paper, or Scissors?");
-        humanChoice = humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1).toLowerCase();
-        verified = humanChoice === "Rock" || humanChoice === "Paper" || humanChoice === "Scissors";
+
+        humanChoice =
+        humanChoice.charAt(0).toUpperCase() +
+        humanChoice.slice(1).toLowerCase();
+        
+        verified = 
+        humanChoice === "Rock" ||
+        humanChoice === "Paper" ||
+        humanChoice === "Scissors";
+
         if (verified){
             break;
         }
