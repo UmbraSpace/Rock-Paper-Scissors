@@ -2,13 +2,10 @@ function getComputerChoice (){
     let ranNum = Math.random();
     let choice;
 
-    if (ranNum < 0.333){
-        choice = "Rock";
-    } else if (ranNum < 0.666) {
-        choice = "Paper";
-    } else {
-        choice = "Scissors";
-    }
+    choice = (ranNum < 0,333)? 
+    "Rock": (ranNum < 0.666)?
+    "Paper": "Scissors";
+
 
     return choice;
 }
