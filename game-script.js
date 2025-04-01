@@ -6,7 +6,6 @@ function getComputerChoice (){
     "Rock": (ranNum < 0.666)?
     "Paper": "Scissors";
 
-
     return choice;
 }
 
@@ -62,23 +61,23 @@ function playRound(humanChoice, computerChoice){
 
 }
 
-function playGame (){
-    let humanScore = 0;
-    let computerScore = 0;
-    let roundResult;
+// function playGame (){
+//     let humanScore = 0;
+//     let computerScore = 0;
+//     let roundResult;
     
-    for (let i = 0; i < 5; i++){
-        roundResult = playRound(getHumanChoice(), getComputerChoice());
-        if (roundResult === 2) {humanScore++}
-        else if (roundResult === 3) {computerScore++}
-    }
-    if (humanScore === computerScore){
-        console.log("This game ends in a tie!")
-    } else if (humanScore > computerScore){
-        console.log("Nice job, you won the game!")
-    } else {
-        console.log("You lost that game! Too bad!")
-    }
-}
+//     for (let i = 0; i < 5; i++){
+//         roundResult = playRound(getHumanChoice(), getComputerChoice());
+//         if (roundResult === 2) {humanScore++}
+//         else if (roundResult === 3) {computerScore++}
+//     }
+//     if (humanScore === computerScore){
+//         console.log("This game ends in a tie!")
+//     } else if (humanScore > computerScore){
+//         console.log("Nice job, you won the game!")
+//     } else {
+//         console.log("You lost that game! Too bad!")
+//     }
+// }
 
 playGame();
