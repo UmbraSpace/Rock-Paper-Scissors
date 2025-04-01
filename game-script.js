@@ -2,37 +2,18 @@ function getComputerChoice (){
     let ranNum = Math.random();
     let choice;
 
-    choice = (ranNum < 0,333)? 
+    choice = (ranNum < 0.333)? 
     "Rock": (ranNum < 0.666)?
     "Paper": "Scissors";
 
     return choice;
 }
 
-function getHumanChoice(){
-    let humanChoice;
-    let verified;
-    while (true) {
-        humanChoice = prompt("Rock, Paper, or Scissors?");
-
-        humanChoice =
-        humanChoice.charAt(0).toUpperCase() +
-        humanChoice.slice(1).toLowerCase();
-        
-        verified = 
-        humanChoice === "Rock" ||
-        humanChoice === "Paper" ||
-        humanChoice === "Scissors";
-
-        if (verified){
-            break;
-        }
-    }
-    return humanChoice;
-}
-
-function playRound(humanChoice, computerChoice){
+function playRound(event){
     let outcome;
+
+    let humanChoice = event.target.id;
+    let computerChoice = getComputerChoice();
     
     if (humanChoice === computerChoice) {
         outcome = 1;
@@ -80,4 +61,8 @@ function playRound(humanChoice, computerChoice){
 //     }
 // }
 
-playGame();
+let choices = document.querySelector("#choices");
+let button = document.querySelector("#Rock");
+
+choices.addEventListener("click", playRound);
+
