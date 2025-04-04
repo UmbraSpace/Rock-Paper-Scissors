@@ -29,40 +29,24 @@ function playRound(event){
 
     switch (outcome) {
         case 1:
-            console.log ("It was a tie!");
+            results.textContent = "It was a tie!";
             break;
         case 2:
-            console.log (`You win! ${humanChoice} beats ${computerChoice}!`);
+            results.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
             break;
         case 3:
-            console.log (`You lose! ${computerChoice} beats ${humanChoice}!`);
+            results.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
     }
 
     return outcome;
 
 }
 
-// function playGame (){
-//     let humanScore = 0;
-//     let computerScore = 0;
-//     let roundResult;
-    
-//     for (let i = 0; i < 5; i++){
-//         roundResult = playRound(getHumanChoice(), getComputerChoice());
-//         if (roundResult === 2) {humanScore++}
-//         else if (roundResult === 3) {computerScore++}
-//     }
-//     if (humanScore === computerScore){
-//         console.log("This game ends in a tie!")
-//     } else if (humanScore > computerScore){
-//         console.log("Nice job, you won the game!")
-//     } else {
-//         console.log("You lost that game! Too bad!")
-//     }
-// }
-
+let results = document.querySelector("#results");
 let choices = document.querySelector("#choices");
-let button = document.querySelector("#Rock");
-
 choices.addEventListener("click", playRound);
+
+while (true){
+    
+}
 
