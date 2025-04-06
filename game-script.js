@@ -9,6 +9,23 @@ function getComputerChoice (){
     return choice;
 }
 
+function addScore (winner){
+    if (winner === 'player') playerScore++;
+    else computerScore++;
+    score.textContent = `playerScore: ${playerScore} computerScore: ${computerScore}`;
+
+    if(playerScore >= 5 || computerScore >= 5){
+        let winner = (playerScore>computerScore) ?
+        "player" : "computer";
+        score.textContent = `playerScore: ${playerScore} computerScore: ${computerScore}
+                            The ${winner} wins!`;
+        playerScore = 0;
+        computerScore = 0;
+        return;
+    }
+
+}
+
 function playRound(event){
     let outcome;
 
@@ -33,9 +50,12 @@ function playRound(event){
             break;
         case 2:
             results.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
+            addScore("player");
+
             break;
         case 3:
             results.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
+            addScore("computer");
     }
 
     return outcome;
@@ -43,10 +63,17 @@ function playRound(event){
 }
 
 let results = document.querySelector("#results");
+let score = document.querySelector("#score");
 let choices = document.querySelector("#choices");
+
+let playerScore = 0;
+let computerScore = 0;
+score.textContent = `playerScore: ${playerScore} computerScore: ${computerScore}`
+
 choices.addEventListener("click", playRound);
 
-while (true){
-    
-}
+
+
+
+
 
