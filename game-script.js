@@ -9,21 +9,20 @@ function getComputerChoice (){
     return choice;
 }
 
-function addScore (winner){
-    if (winner === 'player') playerScore++;
-    else computerScore++;
-    score.textContent = `playerScore: ${playerScore} computerScore: ${computerScore}`;
-
+function updateScore (winner){
+    if (winner === 'player') 
+        playerScore++;
+    else if (winner === 'computer')
+        computerScore++;
+    
     if(playerScore >= 5 || computerScore >= 5){
-        let winner = (playerScore>computerScore) ?
-        "player" : "computer";
         score.textContent = `playerScore: ${playerScore} computerScore: ${computerScore}
-                            The ${winner} wins!`;
+        The ${winner} wins!`;
         playerScore = 0;
         computerScore = 0;
         return;
     }
-
+    score.textContent = `playerScore: ${playerScore} computerScore: ${computerScore}`;
 }
 
 function playRound(event){
@@ -47,15 +46,15 @@ function playRound(event){
     switch (outcome) {
         case 1:
             results.textContent = "It was a tie!";
+            updateScore();
             break;
         case 2:
             results.textContent = `You win! ${humanChoice} beats ${computerChoice}!`;
-            addScore("player");
-
+            updateScore("player");
             break;
         case 3:
             results.textContent = `You lose! ${computerChoice} beats ${humanChoice}!`;
-            addScore("computer");
+            updateScore("computer");
     }
 
     return outcome;
